@@ -1,4 +1,5 @@
-let inps = document.querySelectorAll('input')
+let inps = document.querySelectorAll('input');
+const form = document.forms[0];
 
 const nameRegex = {
     name: /^[A-Za-z]+$/,
@@ -18,3 +19,18 @@ inps.forEach((inp, y) => {
         }
     }
 })
+
+form.onsubmit = (e) => {
+    e.preventDefault();
+
+    let fn = new FormData(form);
+    let i = {
+        name: fn.get('name'),
+        phone: fn.get('phone'), 
+        email: fn.get('email'),
+        password: fn.get('password'), 
+    }
+    
+
+    console.log(i);
+}
